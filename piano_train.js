@@ -40,6 +40,15 @@ keys.forEach(key => {
   console.log("key added")
   key.addEventListener('click',() => playNote(key))
 })
+document.addEventListener('keydown', e => {
+  if (e.repeat) return
+  const key = e.key
+  const whiteKeyIndex = WHITE_KEYS.indexOf(key)
+  const blackKeyIndex = BLACK_KEYS.indexOf(key)
+
+  if (whiteKeyIndex > -1) playNote(whiteKeys[whiteKeyIndex])
+  if (blackKeyIndex > -1) playNote(blackKeys[blackKeyIndex])
+})
 
 document.addEventListener('keydown', (event) => handleNote (event.key));
 
@@ -133,8 +142,10 @@ function handleNote (key) {
           break;
       
       }
-      displayMessage('You played '+ interval +'!');
-
+      setTimeout(function() {
+        sound.play();
+        displayMessage('You played ' + interval + '!');
+      }, 500);
     }
   } else {
     console.log("not a piano key");
@@ -142,24 +153,8 @@ function handleNote (key) {
 
 }
 
-
-// document.addEventListener('keydown', e => {
-
-//   e.preventDefault();
-
-
-//   if (e.repeat) return
-//   const key = e.key
-//   const whiteKeyIndex = WHITE_KEYS.indexOf(key)
-//   const blackKeyIndex = BLACK_KEYS.indexOf(key)
-
-//   if (whiteKeyIndex > -1) playNote(whiteKeys[whiteKeyIndex])
-//   if (blackKeyIndex > -1) playNote(blackKeys[blackKeyIndex])
-
-// })
-
 function playNote(key) {
-  //console.log("KEY PRESSED:", key.dataset.note);
+  console.log("KEY PRESSED:", key.dataset.note);
   const noteAudio = document.getElementById(key.dataset.note)
   noteAudio.currentTime = 0
   noteAudio.play()
@@ -304,13 +299,7 @@ const sound = document.getElementById(combination);
 if (sound) {
   sound.currentTime = 0;
   sound.play();
-  
-
-  // Get the interval name
   const intervalName = getIntervalName(combination);
-  // console.log('Interval Name:', intervalName); 
-  // Display the message with the interval name
-  //displayMessage('You played ' + combination +'. That is '+ intervalName +'!');
   
 }
 }
