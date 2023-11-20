@@ -10,8 +10,18 @@ document.addEventListener('DOMContentLoaded', function () {
       }, 500); 
   });
 });
+
+let pianoKeys = ['z', 's', 'x', 'd', 'c', 'g', 'v', 'b', 'h', 'n', 'j', 'm', ','];
 let pressedSequence = [];
+let i = 0;
+let interval;
+let result;
+
 let keyTimestamps = [];
+let lastKeyPressTime = null;
+let currentTime;
+let timeDifference;
+
 
 function playSound(note) {
   const sound = document.getElementById(note);
@@ -31,24 +41,125 @@ keys.forEach(key => {
   key.addEventListener('click',() => playNote(key))
 })
 
-document.addEventListener('keydown', e => {
+document.addEventListener('keydown', (event) => handleNote (event.key));
 
-  e.preventDefault();
+function handleNote (key) {
+
+  console.log("in func");
+  if(pianoKeys.includes(key.toLowerCase())) {
+    console.log("piano key: " + key.toLowerCase());
+    
+    pressedSequence[i] = pianoKeys.indexOf(key.toLowerCase());
+    i++;
+
+    console.log(i);
+    
+    if(i == 2) {
+      
+      result = parseInt(Math.abs(pressedSequence[0] - pressedSequence[1]));
+      console.log("the result: " + result);
+      
+      pressedSequence = [];
+      i = 0;
+
+      var sound;
+      
+      switch(result) {
+        case 1:  
+          interval = 'minor-second';
+          sound = new Audio('intervals/1minorSecond.mp3');
+          sound.play();
+          break;
+        case 2: 
+          interval = 'major-second';
+          sound = new Audio('intervals/2majorSecond.mp3');
+          sound.play();
+          break;
+        case 3:
+          interval = 'minor-third';
+          sound = new Audio('intervals/3minorThird.mp3');
+          sound.play();
+          break; 
+        case 4:
+          interval = 'major-third';
+          sound = new Audio('intervals/4majorThird.mp3');
+          sound.play();
+          break;
+        case 5: 
+          interval = 'perfect-fourth';
+          sound = new Audio('intervals/5perfectFourth.mp3');
+          sound.play();
+          break;
+        case 6: 
+          interval = 'tritone';
+          sound = new Audio('intervals/6tritone.mp3');
+          sound.play();
+          break;
+        case 7: 
+          interval = 'perfect-fifth';
+          sound = new Audio('intervals/7perfectFifth.mp3');
+          sound.play();
+          break;
+        case 8: 
+          interval = 'minor-sixth';
+          sound = new Audio('intervals/8minorSixth.mp3');
+          sound.play();
+          break;
+        case 9:
+          interval = 'major-sixth';
+          sound = new Audio('intervals/9majorSixth.mp3');
+          sound.play();
+          break;
+        case 10:
+          interval = 'minor-seventh';
+          sound = new Audio('intervals/10minorSeventh.mp3');
+          sound.play();
+          break;
+        case 11:
+          interval = 'major-seventh';
+          sound = new Audio('intervals/11majorSeventh.mp3');
+          sound.play();
+          break;
+        case 12:
+          interval = 'octave';
+          sound = new Audio('intervals/12octave.mp3');
+          sound.play();
+          break;
+      
+        default:
+          interval = 'Invalid interval';
+          sound = new Audio('intervals/Usher - Yeah ft. Lil Jon, Ludacris.mp3');
+          sound.play();
+          break;
+      
+      }
+      displayMessage('You played '+ interval +'!');
+
+    }
+  } else {
+    console.log("not a piano key");
+  }
+
+}
 
 
-  if (e.repeat) return
-  const key = e.key
-  const whiteKeyIndex = WHITE_KEYS.indexOf(key)
-  const blackKeyIndex = BLACK_KEYS.indexOf(key)
+// document.addEventListener('keydown', e => {
 
-  if (whiteKeyIndex > -1) playNote(whiteKeys[whiteKeyIndex])
-  if (blackKeyIndex > -1) playNote(blackKeys[blackKeyIndex])
+//   e.preventDefault();
 
 
+//   if (e.repeat) return
+//   const key = e.key
+//   const whiteKeyIndex = WHITE_KEYS.indexOf(key)
+//   const blackKeyIndex = BLACK_KEYS.indexOf(key)
 
-})
+//   if (whiteKeyIndex > -1) playNote(whiteKeys[whiteKeyIndex])
+//   if (blackKeyIndex > -1) playNote(blackKeys[blackKeyIndex])
+
+// })
+
 function playNote(key) {
-  console.log("KEY PRESSED:", key.dataset.note);
+  //console.log("KEY PRESSED:", key.dataset.note);
   const noteAudio = document.getElementById(key.dataset.note)
   noteAudio.currentTime = 0
   noteAudio.play()
@@ -63,6 +174,15 @@ function playNote(key) {
 //KEY COMBOS
 
 // Maintain a sequence of pressed keys
+
+// 0    1     2     3   4    5    6    7    8    9    10   11  12
+// 'z', 's', 'x', 'd', 'c', 'g', 'v', 'b', 'h', 'n', 'j', 'm', ','
+
+// minor-second = 1
+// z-s = 0-1 = -1
+// s-x = 1-2 = -1
+// x-d = 1-1 = 
+
 
 const intervalCombinationMap = {
 'minor-second': ['z-s', 's-x', 'x-d','d-c', 'c-v', 'v-g','g-b', 'b-h', 'h-n','n-j', 'j-m', 'm-,'],
@@ -79,6 +199,7 @@ const intervalCombinationMap = {
 'octave': ['z-,']
 // Add more intervals and combinations as needed
 };
+
 function displayMessage(content) {
 const messageContainer = document.getElementById('message-container');
 let message = content;
@@ -117,30 +238,30 @@ return match ? match[1] : null;
 }
 
 
-document.addEventListener('keydown', function (e) {
-e.preventDefault();
-const key = e.key.toLowerCase();
+// document.addEventListener('keydown', function (e) {
+// e.preventDefault();
+// const key = e.key.toLowerCase();
 
 
-// Check if the key is already in the array before adding it
-if (!keyTimestamps.includes(key)) {
-    keyTimestamps.push(key);
-    lastKeyPressTime = Date.now(); // Update the timestamp
-}
 
-// Check if the combination is already handled
-const combination = getCombinationFromKeyPress(e);
-if (combination) {
+// // Check if the key is already in the array before adding it
+// if (!keyTimestamps.includes(key)) {
+//     keyTimestamps.push(key);
+//     lastKeyPressTime = Date.now(); // Update the timestamp
+// }
+
+// // Check if the combination is already handled
+// const combination = getCombinationFromKeyPress(e);
+// if (combination) {
    
-    handleCombination(combination);
-}
+//     handleCombination(combination);
+// }
+
+// console.log('Pressed Sequence:', pressedSequence);
+// });
 
 
-});
 
-
-
-let lastKeyPressTime = null;
 
 function calculateTimeDifference() {
 if (lastKeyPressTime) {
@@ -187,9 +308,9 @@ if (sound) {
 
   // Get the interval name
   const intervalName = getIntervalName(combination);
-  console.log('Interval Name:', intervalName); 
+  // console.log('Interval Name:', intervalName); 
   // Display the message with the interval name
-  displayMessage('You played ' + combination +'. That is '+ intervalName +'!');
+  //displayMessage('You played ' + combination +'. That is '+ intervalName +'!');
   
 }
 }
