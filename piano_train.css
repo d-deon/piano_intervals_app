@@ -1,0 +1,79 @@
+*, ::before, *::after {
+   box-sizing: border-box;
+}
+
+body {
+   background-color: darkolivegreen;
+   margin: 0;
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.piano {
+ display: flex;
+ justify-content: space-between;
+ max-width: 80%;
+}
+
+ .key {
+
+  height: calc(var(--width) * 4);
+  width: var(--width);
+
+} 
+
+.white {
+  --width: 100px;
+  background-color: white;
+  border: 1px solid #333;
+  
+}
+.white.active {
+  background-color: antiquewhite;
+}
+
+.black {
+  --width: 60px;
+  background-color: black;
+  border: 1px solid #333;
+  margin-left:calc(var(--width) / -2);
+  margin-right:calc(var(--width) / -2);
+  z-index: 2;
+
+}
+.black.active {
+background-color: rgb(33, 32, 32);
+}
+.backBtn {
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  display:flex;
+  width: -3%;
+  height: -3%;
+  top:-10px;
+  right:-80px;
+}
+.backBtn img {
+  width: 50%; /* Ensure the image fills the container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+#message-container {
+  display: none;
+  background-color: #700e91e8;
+  color: #333;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 60px;
+  size: 1500px;
+  font-weight: bold;
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+  z-index: 999; /* Ensure it's above other elements */
+}

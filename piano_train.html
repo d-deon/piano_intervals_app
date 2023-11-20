@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="piano_train.css">
+    <script src="piano_train.js" defer></script>
+    <title>Piano</title>
+</head>
+<body>
+   <div class="piano">
+    <div data-note="C" class="key white"></div>
+    <div data-note="Db" class="key black"></div>
+    <div data-note="D" class="key white"></div>
+    <div data-note="Eb" class="key black"></div>
+    <div data-note="E" class="key white"></div>
+    <div data-note="F" class="key white"></div>
+    <div data-note="Gb" class="key black"></div>
+    <div data-note="G" class="key white"></div>
+    <div data-note="Ab" class="key black"></div>
+    <div data-note="A" class="key white"></div>
+    <div data-note="Bb" class="key black"></div>
+    <div data-note="B" class="key white"></div>
+    <div data-note="C2" class="key white"></div>
+
+
+   </div> 
+
+
+
+   <audio id="C" src="notes/C.mp3"></audio>
+   <audio id="Db" src="notes/Db.mp3"></audio>
+   <audio id="D" src="notes/D.mp3"></audio>
+   <audio id="Eb" src="notes/Eb.mp3"></audio>
+   <audio id="E" src="notes/E.mp3"></audio>
+   <audio id="F" src="notes/F.mp3"></audio>
+   <audio id="Gb" src="notes/Gb.mp3"></audio>
+   <audio id="G" src="notes/G.mp3"></audio>
+   <audio id="Ab" src="notes/Ab.mp3"></audio>
+   <audio id="A" src="notes/A.mp3"></audio>
+   <audio id="Bb" src="notes/Bb.mp3"></audio>
+   <audio id="B" src="notes/B.mp3"></audio>
+   <audio id="C2" src="notes/C3.mp3"></audio>
+
+  
+   
+ </div>
+
+
+
+   <audio id="C-Db" class = "minor-second" src="intervals/1minorSecond.mp3"></audio>
+   <audio id="C-D" class="major-second" src= "intervals/2majorSecond.mp3"></audio>
+   <audio id="C-Eb" class="minor-third" src="intervals/3minorThird.mp3"></audio>
+   <audio id="C-E" class="major-third" src="intervals/4majorThird.mp3"></audio>
+   <audio id="C-F" class="perfect-fourth" src="intervals/5perfectFourth.mp3"></audio>
+   <audio id="C-Gb" class="tritone"src="intervals/6tritone.mp3"></audio>
+   <audio id="C-G" class="perfect-fifth" src="intervals/7perfectFifth.mp3"></audio>
+   <audio id="C-Ab" class="minor-sixth" src="intervals/8minorSixth.mp3"></audio>
+   <audio id="C-A" class="major-sixth"src="intervals/9majorSixth.mp3"></audio>
+   <audio id="C-Bb" class="minor-seventh" src="intervals/10minorSeventh.mp3"></audio>
+   <audio id="C-B" class="major-seventh"src="intervals/11majorSeventh.mp3"></audio>
+   <audio id="C-C2" class="octave" src="intervals/12octave.mp3"></audio>
+
+   <audio id="Db-D" class = "minor-second" src="intervals/1minorSecond.mp3"></audio>
+   <audio id="Db-Eb" class="major-second"  src="intervals/2majorSecond.mp3"></audio>
+   <audio id="Db-E" class="minor-third" src="intervals/3minorThird.mp3"></audio>
+   <audio id="Db-F" class="major-third" src="intervals/4majorThird.mp3"></audio>
+   <audio id="Db-Gb" class="perfect-fourth" src="intervals/5perfectFourth.mp3"></audio>
+   <audio id="Db-G" class="tritone" src="intervals/6tritone.mp3"></audio>
+   <audio id="Db-Ab" class="perfect-fifth" src="intervals/7perfectFifth.mp3"></audio>
+   <audio id="Db-A" class="minor-sixth"src="intervals/8minorSixth.mp3"></audio>
+   <audio id="Db-Bb" class="major-sixth" src="intervals/9majorSixth.mp3"></audio>
+   <audio id="Db-B" class="minor-seventh" src="intervals/10minorSeventh.mp3"></audio>
+   <audio id="Db-C2" class="major-seventh" src="intervals/11majorSeventh.mp3"></audio>
+  
+   <audio id="D-Eb" class = "minor-second" src="intervals/1minorSecond.mp3"></audio>
+   <audio id="D-E" class="major-second"  src="intervals/2majorSecond.mp3"></audio>
+   <audio id="D-F" class="minor-third" src="intervals/3minorThird.mp3"></audio>
+   <audio id="D-Gb" class="major-third" src="intervals/4majorThird.mp3"></audio>
+   <audio id="D-G" class="perfect-fourth" src="intervals/5perfectFourth.mp3"></audio>
+   <audio id="D-Ab" class="tritone" src="intervals/6tritone.mp3"></audio>
+   <audio id="D-A" class="perfect-fifth" src="intervals/7perfectFifth.mp3"></audio>
+   <audio id="D-Bb" class="minor-sixth"src="intervals/8minorSixth.mp3"></audio>
+   <audio id="D-B" class="major-sixth" src="intervals/9majorSixth.mp3"></audio>
+   <audio id="D-C2" class="minor-seventh" src="intervals/10minorSeventh.mp3"></audio>
+
+   <audio id="Eb-E" class = "minor-second" src="intervals/1minorSecond.mp3"></audio>
+   <audio id="Eb-F" class="major-second"  src="intervals/2majorSecond.mp3"></audio>
+   <audio id="Eb-Gb" class="minor-third" src="intervals/3minorThird.mp3"></audio>
+   <audio id="Eb-G" class="major-third" src="intervals/4majorThird.mp3"></audio>
+   <audio id="Eb-Ab" class="perfect-fourth" src="intervals/5perfectFourth.mp3"></audio>
+   <audio id="Eb-A" class="tritone" src="intervals/6tritone.mp3"></audio>
+   <audio id="Eb-Bb"class="perfect-fifth" src="intervals/7perfectFifth.mp3"></audio>
+   <audio id="Eb-B" class="minor-sixth"src="intervals/8minorSixth.mp3"></audio>
+   <audio id="Eb-C2" class="major-sixth" src="intervals/9majorSixth.mp3"></audio>
+
+   <audio id="E-F" class = "minor-second"src="intervals/1minorSecond.mp3"></audio>
+   <audio id="E-Gb" class="major-second" src="intervals/2majorSecond.mp3"></audio>
+   <audio id="E-G" class="minor-third" src="intervals/3minorThird.mp3"></audio>
+   <audio id="E-Ab" class="major-third" src="intervals/4majorThird.mp3"></audio>
+   <audio id="E-A" class="perfect-fourth" src="intervals/5perfectFourth.mp3"></audio>
+   <audio id="E-Bb" class="tritone" src="intervals/6tritone.mp3"></audio>
+   <audio id="E-B" class="perfect-fifth" src="intervals/7perfectFifth.mp3"></audio>
+   <audio id="E-C2" class="minor-sixth"src="intervals/8minorSixth.mp3"></audio>
+
+   <audio id="F-Gb" class = "minor-second" src="intervals/1minorSecond.mp3"></audio>
+   <audio id="F-G" class="major-second"  src="intervals/2majorSecond.mp3"></audio>
+   <audio id="F-Ab" class="minor-third" src="intervals/3minorThird.mp3"></audio>
+   <audio id="F-A"  class="major-third" src="intervals/4majorThird.mp3"></audio>
+   <audio id="F-Bb" class="perfect-fourth" src="intervals/5perfectFourth.mp3"></audio>
+   <audio id="F-B" class="tritone" src="intervals/6tritone.mp3"></audio>
+   <audio id="F-C2" class="perfect-fifth" src="intervals/7perfectFifth.mp3"></audio>
+
+   <audio id="Gb-G" class = "minor-second" src="intervals/1minorSecond.mp3"></audio>
+   <audio id="Gb-Ab" class="major-second"  src="intervals/2majorSecond.mp3"></audio>
+   <audio id="Gb-A" class="minor-third" src="intervals/3minorThird.mp3"></audio>
+   <audio id="Gb-Bb" class="major-third" src="intervals/4majorThird.mp3"></audio>
+   <audio id="Gb-B" class="perfect-fourth" src="intervals/5perfectFourth.mp3"></audio>
+   <audio id="Gb-C2" class="tritone" src="intervals/6tritone.mp3"></audio>
+
+   <audio id="G-Ab" class = "minor-second" src="intervals/1minorSecond.mp3"></audio>
+   <audio id="G-A" class="major-second" src="intervals/2majorSecond.mp3"></audio>
+   <audio id="G-Bb" class="minor-third" src="intervals/3minorThird.mp3"></audio>
+   <audio id="G-B" class="major-third" src="intervals/4majorThird.mp3"></audio>
+   <audio id="G-C2" class="perfect-fourth" src="intervals/5perfectFourth.mp3"></audio>
+
+
+   <audio id="Ab-A"  class = "minor-second"src="intervals/1minorSecond.mp3"></audio>
+   <audio id="Ab-Bb" class="major-second"  src="intervals/2majorSecond.mp3"></audio>
+   <audio id="Ab-B" class="minor-third" src="intervals/3minorThird.mp3"></audio>
+   <audio id="Ab-C2" class="perfect-fourth" src="intervals/4majorThird.mp3"></audio>
+
+
+   <audio id="A-Bb" class = "minor-second" src="intervals/1minorSecond.mp3"></audio>
+   <audio id="A-B" class="major-second"  src="intervals/2majorSecond.mp3"></audio>
+   <audio id="A-C2" class="minor-third" src="intervals/3minorThird.mp3"></audio>
+
+   <audio id="Bb-B" class = "minor-second" src="intervals/1minorSecond.mp3"></audio>
+   <audio id="Bb-C2" class="major-second"  src="intervals/2majorSecond.mp3"></audio>
+
+   <audio id="B-C2" class = "minor-second" src="intervals/1minorSecond.mp3"></audio>
+
+
+   <div id="message-container"></div>
+
+
+   <div class="backBtn">
+    <img src="https://media.giphy.com/media/aNT63MJRE9qWGVfd7d/giphy.gif"alt="backBtn" class="backBtn-disco">
+   </div>
+   <audio id="backBtn-disco" src="notes/C2.mp3"></audio>
+
+
+   
+ 
+</body>
+</html> 

@@ -1,0 +1,108 @@
+body.initial-load {
+  transition: background 1s ease-in-out;
+}
+
+*, ::before, *::after {
+   box-sizing: border-box;
+}
+
+body {
+   background-color: darkolivegreen;
+   margin: 0;
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   font-size: 80px;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+h1{
+  font-size: 90px;
+  font-style: oblique;
+  text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);;
+  position:absolute;
+  min-width: 60px;
+}
+h2{
+  margin-top: -5%;
+  font-size: 0.3em;
+  min-height: 7000 px;
+  position: relative;
+  left:50%;
+  transform: translateX(-50%);
+  align-self: flex-start;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  
+  
+
+}
+
+@keyframes optionsAnimation {
+  from {
+    transform: scale(1);
+  }
+  to {
+   transform: scale(1.08);
+  }
+ }
+
+.main_menu-container {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 600;
+  display: flex;
+  font-size: 25px;
+  gap: 30px;
+  animation: optionsAnimation 1.5s infinite alternate;
+  
+}
+.main_menu-item {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration:none;
+  width: 150px;
+  margin: 10px;
+  border: 3px solid #e6b3ffa3;
+  color: rgb(173, 104, 238);
+  background-color: rgb(18, 46, 18);
+  
+}
+
+.main_menu-item-1 {
+  min-height: 65px;
+  flex-grow: 1;
+
+}
+.main_menu-item-2 {
+  min-height: 35px;
+  flex-grow: 1;
+
+}
+.main_menu-item-3 {
+  min-height: 35px;
+  flex-grow: 1;
+
+}
+.visuals {
+  display: flex;
+}
+
+.musical-cat-gif {
+  width: 420px; 
+  height: 420px; 
+  margin-bottom: 15%;
+  margin-top: -7%;
+}
+
+.musical-notes-gif {
+  width: 220px; 
+  height: 220px; 
+  margin-top: 5%;
+  margin-right: 5%; 
+  margin-bottom: -7%;
+  
+}

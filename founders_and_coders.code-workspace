@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../my_first_repository/java_training"
+		},
+		{
+			"path": "../my_first_repository/javascript_training.7h"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "founders_and_coders"
+	}
+}
