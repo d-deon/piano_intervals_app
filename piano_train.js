@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-let pianoKeys = ['z', 's', 'x', 'd', 'c', 'g', 'v', 'b', 'h', 'n', 'j', 'm', ','];
+let pianoKeys = ['z', 's', 'x', 'd', 'c', 'v', 'g', 'b', 'h', 'n', 'j', 'm', ','];
 let pressedSequence = [];
 let i = 0;
 let interval;
@@ -176,8 +176,7 @@ function playNote(key) {
 // minor-second = 1
 // z-s = 0-1 = -1
 // s-x = 1-2 = -1
-// x-d = 1-1 = 
-
+// in modul
 
 const intervalCombinationMap = {
 'minor-second': ['z-s', 's-x', 'x-d','d-c', 'c-v', 'v-g','g-b', 'b-h', 'h-n','n-j', 'j-m', 'm-,'],
@@ -192,27 +191,27 @@ const intervalCombinationMap = {
 'minor-seventh': ['z-j', 's-m', 'x-,'],
 'major-seventh': ['z-m', 's-,'],
 'octave': ['z-,']
-// Add more intervals and combinations as needed
+
 };
 
 function displayMessage(content) {
 const messageContainer = document.getElementById('message-container');
 let message = content;
 
-// If content is empty, check if there's an interval name in the message
+
 if (!content.trim()) {
   const intervalName = extractIntervalNameFromMessage(messageContainer.textContent);
   if (intervalName) {
     message = `You played ${intervalName}!`;
   } else {
-    message = ''; // If no interval name is found, keep the message empty
+    message = '';
   }
 }
 
-// Update the message container
+
 messageContainer.textContent = message;
 
-// Display and hide the message container with a timeout
+
 if (message.trim() !== '') {
   messageContainer.style.display = 'block';
   setTimeout(() => {
@@ -225,45 +224,15 @@ if (message.trim() !== '') {
 }
 
 function extractIntervalNameFromMessage(message) {
-// Extract the interval name from the message
 const match = message.match(/You played (.+?)!/);
-
-// Return the interval name if found, otherwise return null
 return match ? match[1] : null;
 }
-
-
-// document.addEventListener('keydown', function (e) {
-// e.preventDefault();
-// const key = e.key.toLowerCase();
-
-
-
-// // Check if the key is already in the array before adding it
-// if (!keyTimestamps.includes(key)) {
-//     keyTimestamps.push(key);
-//     lastKeyPressTime = Date.now(); // Update the timestamp
-// }
-
-// // Check if the combination is already handled
-// const combination = getCombinationFromKeyPress(e);
-// if (combination) {
-   
-//     handleCombination(combination);
-// }
-
-// console.log('Pressed Sequence:', pressedSequence);
-// });
-
-
-
 
 function calculateTimeDifference() {
 if (lastKeyPressTime) {
   const currentTime = Date.now();
   const timeDifference = currentTime - lastKeyPressTime;
 
-  // Update the timestamp for the next key press
   lastKeyPressTime = currentTime;
 
   return timeDifference;
@@ -281,10 +250,9 @@ function handleCombination(combination) {
       
       playCombinationSound(combination);
       
-      // Reset pressedSequence array after successfully playing the combination
       resetPressedSequence();
   } else {
-      // If the time difference is too large, consider it a new sequence
+     
       resetPressedSequence();
   }
 }
@@ -307,7 +275,7 @@ if (sound) {
 
 
 function getIntervalName(combination) {
-// Look up the interval name from the intervalCombinationMap
+
 for (const [interval, combinations] of Object.entries(intervalCombinationMap)) {
   
 

@@ -57,8 +57,8 @@ background-color: rgb(33, 32, 32);
   right:-80px;
 }
 .backBtn img {
-  width: 50%; /* Ensure the image fills the container */
-  height: auto; /* Maintain aspect ratio */
+  width: 50%;
+  height: auto; 
 }
 
 #message-container {
@@ -75,5 +75,5 @@ background-color: rgb(33, 32, 32);
   position: fixed;
   bottom: 100px;
   right: 100px;
-  z-index: 999; /* Ensure it's above other elements */
+  z-index: 999; 
 }
